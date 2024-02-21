@@ -1,0 +1,72 @@
+﻿@model Consultorio.Entity.Paciente
+
+<div class="container">
+    <form id="formAtencion">
+        <fieldset class="mt-3">
+            <legend>Datos Paciente</legend>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="recipient-name" class="col-form-label">DNI Paciente:</label>
+                    <input type="text" class="form-control" id="dni" value="@Model.DNI" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label for="recipient-name" class="col-form-label">Nombre Paciente:</label>
+                    <input type="text" class="form-control" id="nombre" value="@Model.Nombre @Model.ApellidoPaterno @Model.ApellidoMaterno" readonly>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="mt-3">
+            <legend>Datos Atención</legend>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="recipient-name" class="col-form-label">Fecha Atención:</label>
+                    <input type="date" class="form-control" id="fechaAtencion">
+                </div>
+                <div class="col-md-6">
+                    <label for="recipient-name" class="col-form-label">Hora Atención:</label>
+                    <input type="time" class="form-control" id="horaAtencion">
+                </div>
+            </div>
+        </fieldset>
+        <div class="mt-5">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-success" id="crearAtencion">Crear atención y continuar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#crearAtencion").click(function () {
+                let atencion = {
+                    FechaAtencion: $("#fechaAtencion").val() + " " + $("#horaAtencion").val(),
+                    DniPaciente: $("#dni").val()
+                };
+                $.ajax({
+                    url: '@Url.Action("GuardarAtencion", "Atencion")', // URL del servidor que proporciona los datos
+                    //contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    //data: JSON.stringify(atencion) // Parámetro que deseas pasar al servidor
+                    data: { fechaAtencion: $("#fechaAtencion").val() + " " + $("#horaAtencion").val(), dniPaciente: $("#dni").val() } // Parámetro que deseas pasar al servidor
+                })
+                    .done(function (idAtencion) {
+
+                        if (idAtencion > 0) {
+                            atencion.IdAtencion = idAtencion;
+                            var objetoCodificado = encodeURIComponent(JSON.stringify(atencion));
+                            window.location.href = '/Atencion/DetalleAtencion?strAtencion=' + objetoCodificado;
+                        }
+                        else {
+                            Swal.fire({
+                                title: "Error",
+                                text: "Ocurrió un error en el guardado",
+                                icon: "error"
+                            });
+                        }
+                    });
+            });
+        })
+    </script>
+}

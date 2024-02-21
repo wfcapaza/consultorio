@@ -1,0 +1,120 @@
+﻿@model Consultorio.Entity.Atencion
+
+<div class="container">
+    <fieldset class="mt-4">
+        <legend>Datos del Medico</legend>
+        <div class="row">
+            <label class="col-md-2">DNI</label>
+            <div class="col-md-4">
+                <span>@Model.DniMedico</span>
+            </div>
+            <label class="col-md-2">Nombre Completo</label>
+            <div class="col-md-4">
+                <span>@Model.NombreMedico</span>
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-2">Correo Electronico</label>
+            <div class="col-md-4">
+                <span>@Model.CorreoMedico</span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="mt-4">
+        <legend>Datos del Paciente</legend>
+        <div class="row">
+            <label class="col-md-2">DNI</label>
+            <div class="col-md-4">
+                <span>@Model.DniPaciente</span>
+            </div>
+            <label class="col-md-2">Nombre Completo</label>
+            <div class="col-md-4">
+                <span>@Model.NombrePaciente</span>
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-2">Correo Electronico</label>
+            <div class="col-md-4">
+                <span>@Model.CorreoPaciente</span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="mt-3">
+        <legend>Datos de la Atención</legend>
+        <div class="row">
+            <label class="col-md-2">Nro. de Atención</label>
+            <div class="col-md-4">
+                <span>@Model.IdAtencion</span>
+            </div>
+            <label class="col-md-2">Fecha Atención</label>
+            <div class="col-md-4">
+                <span>@Model.FechaAtencion</span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="mt-3">
+        <legend>Datos del Diagnostico</legend>
+        <div class="row">
+            <label class="col-md-2">Diagnostico</label>
+            <div class="col-md-4">
+                <span>@Model.Diagnostico</span>
+            </div>
+            <label class="col-md-2">Descripción</label>
+            <div class="col-md-4">
+                <span>@Model.DescDiagnostico</span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="mt-3">
+        <legend>Datos del Tratamiento</legend>
+        <div class="row">
+            <label class="col-md-2">Diagnostico</label>
+            <div class="col-md-10">
+                <span>@Model.DescTratamiento</span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="mt-3">
+        <legend>Datos de los Medicamentos</legend>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id Medicamento</th>
+                            <th>Nombre Medicamento</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Medicamentos.Count() > 0)
+                        {
+                            @foreach (var medicamento in Model.Medicamentos)
+                            {
+                                <tr>
+                                    <td>@medicamento.IdMedicamento</td>
+                                    <td>@medicamento.Nombre</td>
+                                    <td>@medicamento.Cantidad</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="3">
+                                    <div class="alert alert-info text-center">
+                                        <p>No hay medicamentos registrados</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </fieldset>
+    <div class="d-flex justify-content-center mt-5">
+        <a class="btn btn-danger" href="@Url.Action("Index")">Regresar</a>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.Entity\bin\Debug\net8.0\Consultorio.Entity.deps.json
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.Entity\bin\Debug\net8.0\Consultorio.Entity.dll
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.Entity\bin\Debug\net8.0\Consultorio.Entity.pdb
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.Entity\obj\Debug\net8.0\Consultorio.Entity.GeneratedMSBuildEditorConfig.editorconfig
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.Entity\obj\Debug\net8.0\Consultorio.Entity.AssemblyInfoInputs.cache
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.Entity\obj\Debug\net8.0\Consultorio.Entity.AssemblyInfo.cs
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.Entity\obj\Debug\net8.0\Consultorio.Entity.csproj.CoreCompileInputs.cache
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.Entity\obj\Debug\net8.0\Consultorio.Entity.dll
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.Entity\obj\Debug\net8.0\refint\Consultorio.Entity.dll
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.Entity\obj\Debug\net8.0\Consultorio.Entity.pdb
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.Entity\obj\Debug\net8.0\ref\Consultorio.Entity.dll

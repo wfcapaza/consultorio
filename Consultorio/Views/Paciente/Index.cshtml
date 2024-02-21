@@ -1,0 +1,172 @@
+﻿@model IEnumerable<Consultorio.Entity.Paciente>
+
+<div class="container">
+    <div class="col-md-12">
+        <button class="btn btn-success" id="openModal">Nuevo Paciente</button>
+    </div>
+    <div class="col-md-12 mt-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>DNI</td>
+                    <td>Nombre</td>
+                    <td>Apellidos</td>
+                    <td>Correo</td>
+                    <td>Fecha Nacimiento</td>
+                    <td>Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count() > 0)
+                {
+                    @foreach (var paciente in Model)
+                    {
+                        <tr>
+                            <td>@paciente.DNI</td>
+                            <td>@paciente.Nombre</td>
+                            <td>@paciente.ApellidoPaterno @paciente.ApellidoMaterno</td>
+                            <td>@paciente.Correo</td>
+                            <td>@paciente.FechaNacimiento?.ToString("dd-MM-yyyy")</td>
+                            <td>
+                                <a class="btn btn-success" onclick='obtenerPaciente(@paciente.DNI)'>Editar</a>
+                                <a class="btn btn-primary" href="@Url.Action("Atencion", "Paciente", new { dni = paciente.DNI })">Atender</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">
+                            <div class="alert alert-info text-center">
+                                <p>No hay pacientes registrados</p>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="modalEditarCrear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="tituloModal">Paciente</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="formPaciente">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">DNI:</label>
+                        <input type="text" class="form-control" name="DNI" id="dni" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Nombre:</label>
+                        <input type="text" class="form-control" name="Nombre" id="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Apellido Paterno:</label>
+                        <input type="text" class="form-control" name="ApellidoPaterno" id="apellidoPaterno" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Apellido Materno:</label>
+                        <input type="text" class="form-control" name="ApellidoMaterno" id="apellidoMaterno" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Correo:</label>
+                        <input type="text" class="form-control" name="Correo" id="correo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Fecha Nacimiento:</label>
+                        <input type="date" class="form-control" name="FechaNacimiento" id="fechaNacimiento" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-primary" id="guardarPaciente" type="button">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function limpiarModal() {
+            $("#dni").val("");
+            $("#nombre").val("");
+            $("#apellidoPaterno").val("");
+            $("#apellidoMaterno").val("");
+            $("#correo").val("");
+            $("#fechaNacimiento").val("");
+        }
+        function obtenerPaciente(dniPaciente) {
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("ObtenerPaciente")', // URL del servidor que proporciona los datos
+                data: { dniPaciente: dniPaciente }, // Parámetro que deseas pasar al servidor
+                dataType: "json", // Tipo de datos esperados en la respuesta
+                success: function (data) {
+                    let fechaNacimiento = new Date(data.fechaNacimiento);
+                    $("#dni").val(data.dni);
+                    $("#nombre").val(data.nombre);
+                    $("#apellidoPaterno").val(data.apellidoPaterno);
+                    $("#apellidoMaterno").val(data.apellidoMaterno);
+                    $("#correo").val(data.correo);
+                    $("#fechaNacimiento").val(fechaNacimiento.toISOString().slice(0, 10));
+                    $("#modalEditarCrear").modal('show');
+                },
+                error: function (xhr, status, error) {
+                    // Manejar errores de la solicitud AJAX
+                    console.error("Error al cargar los datos:", status, error);
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $("#openModal").click(function () {
+                limpiarModal();
+                $("#modalEditarCrear").modal('show');
+            });
+            $("#guardarPaciente").click(function () {
+                paciente = {
+                    DNI: $("#dni").val(),
+                    Nombre: $("#nombre").val(),
+                    ApellidoPaterno: $("#apellidoPaterno").val(),
+                    ApellidoMaterno: $("#apellidoMaterno").val(),
+                    Correo: $("#correo").val(),
+                    FechaNacimiento: $("#fechaNacimiento").val()
+                };
+
+                $.ajax({
+                    url: '@Url.Action("GuardarPaciente", "Paciente")', // URL del servidor que proporciona los datos
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    data: JSON.stringify(paciente) // Parámetro que deseas pasar al servidor
+                })
+                    .done(function (respuesta) {
+
+                        if (respuesta.resultado) {
+                            location.reload();
+                        }
+                        else if (!respuesta.resultado && Boolean(respuesta.mensaje)) {
+                            Swal.fire({
+                                title: "Advertencia",
+                                text: respuesta.mensaje,
+                                icon: "warning"
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                title: "Error",
+                                text: "Ocurrió un error en el guardado",
+                                icon: "error"
+                            });
+                        }
+                    });
+            });
+        })
+    </script>
+}

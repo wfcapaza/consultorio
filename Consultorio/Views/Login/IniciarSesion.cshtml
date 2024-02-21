@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "_LoginLayout";
+}
+
+<form asp-action="IniciarSesion">
+    <div class="col-md-12 mt-3">
+        <input class="form-control" type="email" placeholder="Ingrese correo electronico" name="correo" required />
+    </div>
+    <div class="col-md-12 mt-3">
+        <input class="form-control" type="password" placeholder="Ingrese contraseña" name="contrasenha" required />
+    </div>
+    <div class="col-md-12 mt-3">
+        <button class="btn btn-primary form-control" type="submit">Iniciar Sesión</button>
+    </div>
+
+    @if(ViewData["mensaje"] != null)
+    {
+        <div class="form-group mt-3">
+            <div class="alert alert-danger text-center" role="alert">
+                @ViewData["mensaje"]
+            </div>
+        </div>
+    }
+
+    <div class="col-md-12 mt-3">
+        ¿No tienes una cuenta? <a href="@Url.Action("Registrarse", "Login")">Registrate!</a>
+    </div>
+</form>

@@ -1,0 +1,17 @@
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\bin\Debug\net8.0\Consultorio.BusinessLogic.deps.json
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\bin\Debug\net8.0\Consultorio.BusinessLogic.dll
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\bin\Debug\net8.0\Consultorio.BusinessLogic.pdb
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\obj\Debug\net8.0\Consultorio.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\obj\Debug\net8.0\Consultorio.BusinessLogic.AssemblyInfoInputs.cache
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\obj\Debug\net8.0\Consultorio.BusinessLogic.AssemblyInfo.cs
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\obj\Debug\net8.0\Consultorio.BusinessLogic.csproj.CoreCompileInputs.cache
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\obj\Debug\net8.0\Consultorio.BusinessLogic.dll
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\obj\Debug\net8.0\refint\Consultorio.BusinessLogic.dll
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\obj\Debug\net8.0\Consultorio.BusinessLogic.pdb
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\obj\Debug\net8.0\ref\Consultorio.BusinessLogic.dll
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\bin\Debug\net8.0\Consultorio.DataAccess.dll
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\bin\Debug\net8.0\Consultorio.Entity.dll
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\bin\Debug\net8.0\Consultorio.DataAccess.pdb
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\bin\Debug\net8.0\Consultorio.Entity.pdb
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\obj\Debug\net8.0\Consultorio.BusinessLogic.csproj.AssemblyReference.cache
+D:\Maestria UNSA\Redes y conectividad\Proyecto Final\Consultorio\Consultorio.BusinessLogic\obj\Debug\net8.0\Consultorio.BusinessLogic.csproj.CopyComplete

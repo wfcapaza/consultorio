@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Consultorio.Entity.Atencion>
+
+<div class="container">
+    <div class="col-md-12 mt-3">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Nro. Atención</td>
+                    <td>Medico</td>
+                    <td>Paciente</td>
+                    <td>Fecha Atención</td>
+                    <td>Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count() > 0)
+                {
+                    @foreach (var atencion in Model)
+                    {
+                        <tr>
+                            <td>@atencion.IdAtencion</td>
+                            <td>@atencion.NombreMedico</td>
+                            <td>@atencion.NombrePaciente</td>
+                            <td>@atencion.FechaAtencion</td>
+                            <td>
+                                <a class="btn btn-primary" href="@Url.Action("ResumenAtencion", "Atencion", new { idAtencion = atencion.IdAtencion })">Ver Resumen</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">
+                            <div class="alert alert-info text-center">
+                                <p>No hay atenciones registradas</p>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,213 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.BusinessLogic\\Consultorio.BusinessLogic.csproj": {}
+  },
+  "projects": {
+    "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.BusinessLogic\\Consultorio.BusinessLogic.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.BusinessLogic\\Consultorio.BusinessLogic.csproj",
+        "projectName": "Consultorio.BusinessLogic",
+        "projectPath": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.BusinessLogic\\Consultorio.BusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.BusinessLogic\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.DataAccess\\Consultorio.DataAccess.csproj": {
+                "projectPath": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.DataAccess\\Consultorio.DataAccess.csproj"
+              },
+              "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.Entity\\Consultorio.Entity.csproj": {
+                "projectPath": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.Entity\\Consultorio.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.DataAccess\\Consultorio.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.DataAccess\\Consultorio.DataAccess.csproj",
+        "projectName": "Consultorio.DataAccess",
+        "projectPath": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.DataAccess\\Consultorio.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.Entity\\Consultorio.Entity.csproj": {
+                "projectPath": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.Entity\\Consultorio.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.28, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.Entity\\Consultorio.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.Entity\\Consultorio.Entity.csproj",
+        "projectName": "Consultorio.Entity",
+        "projectPath": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.Entity\\Consultorio.Entity.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\Maestria UNSA\\Redes y conectividad\\Proyecto Final\\Consultorio\\Consultorio.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

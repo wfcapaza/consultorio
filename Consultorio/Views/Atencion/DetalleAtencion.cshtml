@@ -1,0 +1,201 @@
+﻿@model Consultorio.Entity.Atencion
+
+<div class="container">
+
+    <fieldset class="mt-3">
+        <legend>Datos Atención</legend>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Nro. atención:</label>
+                <input type="text" class="form-control" id="idAtencion" value="@Model.IdAtencion" readonly>
+            </div>
+            <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Fecha atención:</label>
+                <input type="text" class="form-control" id="fechaAtencion" value="@Model.FechaAtencion" readonly>
+            </div>
+            <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Dni paciente:</label>
+                <input type="text" class="form-control" id="dniAtencion" value="@Model.DniPaciente" readonly>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="mt-5">
+        <legend>Datos Diagnostico</legend>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Diagnostico:</label>
+                <input type="text" class="form-control" id="diagnostico">
+            </div>
+            <div class="col-md-12">
+                <label for="recipient-name" class="col-form-label">Descipción:</label>
+                <textarea class="form-control" id="descDiagnostico"></textarea>
+            </div>
+            <div class="col-md-12 mt-5">
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-success" id="guardarDiagnostico">Guardar diagnostico</button>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="mt-3">
+        <legend>Datos Tratamiento</legend>
+        <div class="row">
+            <div class="col-md-12">
+                <label for="recipient-name" class="col-form-label">Descipción:</label>
+                <textarea class="form-control" id="descTratamiento"></textarea>
+            </div>
+            <div class="col-md-12 mt-5">
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-success" id="guardarTratamiento">Guardar tratamiento</button>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    
+    <fieldset class="mt-3 mb-5">
+        <legend>Medicamentos</legend>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Medicamento:</label>
+                <select class="form-control" id="idMedicamento"></select>
+            </div>
+            <div class="col-md-6">
+                <label for="recipient-name" class="col-form-label">Cantidad:</label>
+                <input type="number" class="form-control" id="cantMedicamento">
+            </div>
+            <div class="col-md-12 mt-3">
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-success" id="agregarMedicamento">Guardar Medicamento</button>
+                </div>
+            </div>
+            <div class="col-md-12 mt-3" id="contenedorMedicamentos">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id Medicamento</th>
+                            <th>Nombre Medicamento</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="medicamentos"></tbody>
+                </table>
+            </div>
+        </div>
+    </fieldset>    
+
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            <a class="btn btn-primary" href="@Url.Action("Index")">Finalizar atención</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#contenedorMedicamentos").hide();
+
+            $.getJSON('@Url.Action("ObtenerMedicamentos")', function (data) {
+                for (item of data) {
+                    $("#idMedicamento").append($("<option>", {
+                        value: item.idMedicamento,
+                        text: item.nombre
+                    }));
+                }
+            });
+
+            $("#guardarDiagnostico").click(function () {
+                let diagnostico = {
+                    IdAtencion: $("#idAtencion").val(),
+                    Diagnostico: $("#diagnostico").val(),
+                    Descripcion: $("#descDiagnostico").val()
+                };
+
+                $.ajax({
+                    url: '@Url.Action("GuardarDiagnostico", "Atencion")', // URL del servidor que proporciona los datos
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    data: JSON.stringify(diagnostico) // Parámetro que deseas pasar al servidor
+                })
+                    .done(function (resultado) {
+
+                        if (resultado) {
+                            $("#diagnostico").prop("readonly", true);
+                            $("#descDiagnostico").prop("readonly", true);
+                            $("#guardarDiagnostico").prop("disabled", true);
+                        }
+                        else {
+                            Swal.fire({
+                                title: "Error",
+                                text: "Ocurrió un error en el guardado",
+                                icon: "error"
+                            });
+                        }
+                    });
+            });
+            $("#guardarTratamiento").click(function () {
+                let tratamiento = {
+                    IdAtencion: $("#idAtencion").val(),
+                    Descripcion: $("#descTratamiento").val()
+                };
+
+                $.ajax({
+                    url: '@Url.Action("GuardarTratamiento", "Atencion")', // URL del servidor que proporciona los datos
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    data: JSON.stringify(tratamiento) // Parámetro que deseas pasar al servidor
+                })
+                    .done(function (resultado) {
+
+                        if (resultado) {
+                            $("#descTratamiento").prop("readonly", true);
+                            $("#guardarTratamiento").prop("disabled", true);
+                        }
+                        else {
+                            Swal.fire({
+                                title: "Error",
+                                text: "Ocurrió un error en el guardado",
+                                icon: "error"
+                            });
+                        }
+                    });
+            });
+            $("#agregarMedicamento").click(function () {
+                let medicamento = {
+                    IdAtencion: $("#idAtencion").val(),
+                    IdMedicamento: $("#idMedicamento").val(),                    
+                    Cantidad: $("#cantMedicamento").val()
+                };
+
+                $.ajax({
+                    url: '@Url.Action("GuardarMedicamento", "Atencion")', // URL del servidor que proporciona los datos
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    data: JSON.stringify(medicamento) // Parámetro que deseas pasar al servidor
+                })
+                    .done(function (resultado) {
+                        medicamento.NombreMedicamento = $("#idMedicamento option:selected").text();
+
+                        if (resultado) {
+                            $("#contenedorMedicamentos").show();
+                            let nuevaFila = `<tr> 
+                                                <td>${medicamento.IdMedicamento}</td>
+                                                <td>${medicamento.NombreMedicamento}</td>
+                                                <td>${medicamento.Cantidad}</td>
+                                                </tr>`
+                            $("#medicamentos").append(nuevaFila);
+                        }
+                        else {
+                            Swal.fire({
+                                title: "Error",
+                                text: "Ocurrió un error en el guardado",
+                                icon: "error"
+                            });
+                        }
+                    });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "_LoginLayout";
+}
+
+<form asp-action="Registrarse">
+    <div class="col-md-12 mt-3">
+        <input class="form-control" type="text" placeholder="Ingrese DNI" name="DNI" required />
+    </div>
+    <div class="col-md-12 mt-3">
+        <input class="form-control" type="text" placeholder="Ingrese nombres" name="Nombre" required />
+    </div>
+    <div class="col-md-12 mt-3">
+        <input class="form-control" type="text" placeholder="Ingrese primer apellido" name="ApellidoPaterno" required />
+    </div>
+    <div class="col-md-12 mt-3">
+        <input class="form-control" type="text" placeholder="Ingrese segundo apellido" name="ApellidoMaterno" required />
+    </div>
+    <div class="col-md-12 mt-3">
+        <input class="form-control" type="email" placeholder="Ingrese correo electronico" name="Correo" required />
+    </div>
+    <div class="col-md-12 mt-3">
+        <input class="form-control" type="password" placeholder="Ingrese contraseña" name="Contrasenha" required />
+    </div>
+    <div class="col-md-12 mt-3">
+        <input class="form-control" type="date" placeholder="Ingrese fecha nacimiento" name="FechaNacimiento" required />
+    </div>
+    @if (ViewData["mensaje"] != null)
+    {
+        <div class="form-group mt-3">
+            <div class="alert alert-danger text-center" role="alert">
+                @ViewData["mensaje"]
+            </div>
+        </div>
+    }
+    <div class="col-md-12 mt-3">
+        <button class="btn btn-primary form-control" type="submit">Registrarse</button>       
+    </div>
+    <div class="col-md-12 mt-3">
+        <a class="btn btn-danger form-control" href="@Url.Action("IniciarSesion", "Login")">Regresar</a>
+    </div>    
+</form>
